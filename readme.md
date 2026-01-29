@@ -55,6 +55,3 @@ webhook-repo/
 
 ### 1️⃣ Clone the repository
 
-```bash
-git clone https://github.com/Aaru607/webhook-repo.git
-cd webhook-repo
