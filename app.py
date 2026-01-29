@@ -8,10 +8,14 @@ app = Flask(__name__)
 CORS(app)
 
 # MongoDB connection
-MONGO_URI = os.environ.get('MONGO_URI', 'mongodb://localhost:27017/')
+MONGO_URI = os.environ.get("MONGO_URI")
+
+if not MONGO_URI:
+    raise RuntimeError("MONGO_URI environment variable not set")
+
 client = MongoClient(MONGO_URI)
-db = client['github_webhooks']
-collection = db['events']
+db = client["github_webhooks"]
+collection = db["events"]
 
 @app.route('/')
 def index():
